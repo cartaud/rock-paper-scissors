@@ -10,13 +10,14 @@
 
     <h1>Man Versus Machine!</h1>
     
-
     <button onclick='game()'>Play a round of 5</button>
 
     <div class="icons">
-        <button value="rock"><img src="images/rockIcon.jpeg" alt="rock icon"><figcaption>ROCK</figcaption></button>
-        <button value="paper"><img src="./images/paperIcon.jpeg" alt="paper icon"><figcaption>PAPER</figcaption></button>
-        <button value="scissors"><img src="./images/scissorsIcon.jpeg" alt="scissors icon"><figcaption>SCISSORS</figcaption></button>
+        <button onClick="playRound('rock', computerPlay())"><img src="images/rockIcon.jpeg" alt="rock icon"><figcaption>ROCK</figcaption></button>
+        <button onClick="playRound('paper', computerPlay())"><img src="./images/paperIcon.jpeg" alt="paper icon"><figcaption>PAPER</figcaption></button>
+        <button onClick="playRound('scissors', computerPlay())"><img src="./images/scissorsIcon.jpeg" alt="scissors icon"><figcaption>SCISSORS</figcaption></button>
     </div>
+
+    <div class = "msg"></div>
 </body>
 </html>
