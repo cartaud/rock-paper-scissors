@@ -21,6 +21,7 @@ function computerPlay() {
 //function that plays a single round of Rock Paper Scissors. 
 function playRound(playerSelection, computerSelection) {
     //first checks if it is a tie, if it is, the if statement will run
+    
     if (playerSelection == computerSelection) { 
         displayScore(cpuScore, playerScore);
         displayResult(`It's a tie!.`);
