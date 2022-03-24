@@ -27,3 +27,7 @@ h1 {
 .scoreContainer {
     margin: 10px 46%;
 }
+
+.playerScore {
+    margin-left: 16px;
+}

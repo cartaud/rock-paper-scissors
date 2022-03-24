@@ -16,40 +16,48 @@ function computerPlay() {
     return arr[rand];
 }
 
-//function that resets the scores to zero
-function newGame() {
-    getPlayerScore.textContent = 0;
-    getCpuScore.textContent = 0;
-}
+
 
 //function that plays a single round of Rock Paper Scissors. 
 function playRound(playerSelection, computerSelection) {
+    //first checks if it is a tie, if it is, the if statement will run
     if (playerSelection == computerSelection) { 
-        return 'Its a tie!'
+        displayScore(cpuScore, playerScore);
+        displayResult(`It's a tie!.`);
     }
+
+    //When user hits the new game button, it resets both scores back to 0
+    else if (playerSelection == 'reset') {
+        cpuScore = 0;
+        playerScore = 0;
+        displayScore(cpuScore, playerScore);
+        displayResult(`You dare challenge me? Rock, paper, scissors SHOOT...`);
+    }
+
+    //all possible conditions for a game of rock paper scissors
     else {
         if (playerSelection == 'rock' && computerSelection == 'scissors') {
-            getPlayerScore.textContent = `${playerScore++}`
+            displayScore(cpuScore, playerScore++);
             displayResult(`You win! Rock beats scissors.`);
         }
         else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-            getPlayerScore.textContent = `${playerScore++}`
+            displayScore(cpuScore, playerScore++);
             displayResult(`You win! Scissors beats paper.`);
         }
         else if (playerSelection == 'paper' && computerSelection == 'rock') {
-            getPlayerScore.textContent = `${playerScore++}`
+            displayScore(cpuScore, playerScore++);
             displayResult(`You win! Paper beats rock.`);
         }
         else if (playerSelection == 'rock' && computerSelection == 'paper'){
-            getCpuScore.textContent = `${cpuScore++}`
+            displayScore(cpuScore++, playerScore);
             displayResult(`You lose! Paper beats rock.`);
         }
         else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-            getCpuScore.textContent = `${cpuScore++}`
+            displayScore(cpuScore++, playerScore);
             displayResult(`You lose! Rock beats scissors.`);
         }
         else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-            getCpuScore.textContent = `${cpuScore++}`
+            displayScore(cpuScore++, playerScore);
             displayResult(`You lose! Scissors beats paper.`);
         }
     }
@@ -59,6 +67,10 @@ function displayResult(str) {
     msg.textContent = str;
 }
 
+function displayScore(cpuScore, playerScore){
+    getCpuScore.textContent = cpuScore;
+    getPlayerScore.textContent = playerScore;
+}
 
 /*Write a NEW function called game(). Call the playRound function inside of this one to play a 5 
 round game that keeps score and reports a winner or loser at the end.*/
