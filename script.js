@@ -1,6 +1,13 @@
-const msg = document.querySelector('.msg');
-msg.textContent = 'will i update?';
+let cpuScore = 0;
+let playerScore = 0;
 
+const msg = document.querySelector('.msg');
+msg.textContent = 'You dare challenge me? Rock, paper, scissors SHOOT...';
+
+const getCpuScore = document.querySelector('.cpuScore');
+getCpuScore.textContent = 0;
+const getPlayerScore = document.querySelector('.playerScore');
+getPlayerScore.textContent = 0;
 
 //function that randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. 
 function computerPlay() {
@@ -9,13 +16,12 @@ function computerPlay() {
     return arr[rand];
 }
 
-//DOM
-
-//function that gets players input
-function playerPlay() {
-    let choice = prompt('Rock, Paper, Scissors?: ');
-    return choice.toLowerCase();
+//function that resets the scores to zero
+function newGame() {
+    getPlayerScore.textContent = 0;
+    getCpuScore.textContent = 0;
 }
+
 //function that plays a single round of Rock Paper Scissors. 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) { 
@@ -23,28 +29,30 @@ function playRound(playerSelection, computerSelection) {
     }
     else {
         if (playerSelection == 'rock' && computerSelection == 'scissors') {
+            getPlayerScore.textContent = `${playerScore++}`
             displayResult(`You win! Rock beats scissors.`);
         }
-        else if (playerSelection == 'rock' && computerSelection == 'paper'){
-            displayResult(`You lose! Paper beats rock.`);
-        }
-        else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-            displayResult(`You lose! Rock beats scissors.`);
-        }
         else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+            getPlayerScore.textContent = `${playerScore++}`
             displayResult(`You win! Scissors beats paper.`);
         }
         else if (playerSelection == 'paper' && computerSelection == 'rock') {
+            getPlayerScore.textContent = `${playerScore++}`
             displayResult(`You win! Paper beats rock.`);
         }
+        else if (playerSelection == 'rock' && computerSelection == 'paper'){
+            getCpuScore.textContent = `${cpuScore++}`
+            displayResult(`You lose! Paper beats rock.`);
+        }
+        else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+            getCpuScore.textContent = `${cpuScore++}`
+            displayResult(`You lose! Rock beats scissors.`);
+        }
         else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            getCpuScore.textContent = `${cpuScore++}`
             displayResult(`You lose! Scissors beats paper.`);
         }
-        else {
-            displayResult(`Please make sure you enter rock, paper, or scissors`);
-        }
     }
-    
 }
 
 function displayResult(str) {

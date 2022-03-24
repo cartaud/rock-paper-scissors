@@ -10,7 +10,7 @@
 
     <h1>Man Versus Machine!</h1>
     
-    <button onclick='game()'>Play a round of 5</button>
+    
 
     <div class="icons">
         <button onClick="playRound('rock', computerPlay())"><img src="images/rockIcon.jpeg" alt="rock icon"><figcaption>ROCK</figcaption></button>
@@ -18,6 +18,16 @@
         <button onClick="playRound('scissors', computerPlay())"><img src="./images/scissorsIcon.jpeg" alt="scissors icon"><figcaption>SCISSORS</figcaption></button>
     </div>
 
+    <button class="newGame" onclick='newGame()'>New Game</button> 
+
     <div class = "msg"></div>
+
+    
+    <div class="scoreContainer">
+        <h2>SCORE</h2>
+        <div>Computer: <span class="cpuScore"></span></div>
+        <div>Human: <span class="playerScore"></span></div>
+    </div>
+    
 </body>
 </html>
