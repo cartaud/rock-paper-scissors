@@ -159,7 +159,7 @@ function displayScore(cpuScore, playerScore){
     else if (cpuScore == 5) {
         winner.style.color = "red";
         winner.textContent = "formulating response.... ";
-        const pause = setTimeout(cpuResponse, 5000);
+        const pause = setTimeout(cpuResponse, 3000);
         function cpuResponse() {
             let rand = Math.floor((Math.random()*3));
             let arr = ['Better luck next time loser!', 'Wow you suck!', 'Hacking into your savings account'];
