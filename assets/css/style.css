@@ -6,6 +6,13 @@ h1 {
     display: flex;
     justify-content: center;
 }
+h1::before{
+    content: "👫";
+}
+
+h1::after {
+    content: "🤖";
+}
 
 h2 {
     text-align: center;

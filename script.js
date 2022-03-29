@@ -9,7 +9,7 @@ playerHand.textContent = `❓`;
 cpuHand.textContent = `❓`;
 
 const msg = document.querySelector('.msg');
-msg.textContent = 'You dare challenge me? First one to five wins! Rock, paper, scissors SHOOT...';
+msg.textContent = 'First one to five wins! Rock, paper, scissors SHOOT...';
 
 const getCpuScore = document.querySelector('.cpuScore');
 getCpuScore.textContent = 0;
@@ -29,22 +29,13 @@ function computerPlay() {
 
 //function that plays a round of Rock Paper Scissors. 
 function playRound(playerSelection, computerSelection) {
-    //first checks if it is a tie, if it is, the if statement will run
-    if (playerSelection == computerSelection) { 
-        displayPlayerChoice(playerSelection)
-        displayCpuChoice(computerSelection)
-        displayScore(cpuScore, playerScore);
-        displayResult(`It's a tie!.`);
-        playerHand.style.borderColor = 'black';
-        cpuHand.style.borderColor = 'black';
-    }
 
-    //When user hits the new game button, it resets both scores back to 0
-    else if (playerSelection == 'reset') {
+    //When user hits the new game button (game must be over), it resets all values back to starter code
+    if (playerSelection == 'reset' && (playerScore == 5 || cpuScore ==5)) {
         cpuScore = 0;
         playerScore = 0;
         displayScore(cpuScore, playerScore);
-        displayResult(`You dare challenge me? Rock, paper, scissors SHOOT...`);
+        displayResult(`First one to five wins! Rock, paper, scissors SHOOT...`);
         winner.textContent = "";
         playerHand.textContent = `❓`;
         cpuHand.textContent = `❓`;
@@ -52,62 +43,76 @@ function playRound(playerSelection, computerSelection) {
         cpuHand.style.borderColor = 'black';
     }
 
-    //all possible conditions for a game of rock paper scissors
-    else {
-        if (playerSelection == 'rock' && computerSelection == 'scissors') {
-            playerScore++
+    
+    //prevents game from going past score of 5
+    else if (playerScore < 5 && cpuScore < 5) {
+        //first checks if it is a tie, if it is, the if statement will run
+        if (playerSelection == computerSelection) { 
             displayPlayerChoice(playerSelection)
             displayCpuChoice(computerSelection)
             displayScore(cpuScore, playerScore);
-            displayResult(`You win! Rock beats scissors.`);
-            playerHand.style.borderColor = 'green';
-            cpuHand.style.borderColor = 'red';
+            displayResult(`It's a tie!.`);
+            playerHand.style.borderColor = 'black';
+            cpuHand.style.borderColor = 'black';
+        }
 
-        }
-        else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-            playerScore++
-            displayPlayerChoice(playerSelection)
-            displayCpuChoice(computerSelection)
-            displayScore(cpuScore, playerScore++);
-            displayResult(`You win! Scissors beats paper.`);
-            playerHand.style.borderColor = 'green';
-            cpuHand.style.borderColor = 'red';
-        }
-        else if (playerSelection == 'paper' && computerSelection == 'rock') {
-            playerScore++
-            displayPlayerChoice(playerSelection)
-            displayCpuChoice(computerSelection)
-            displayScore(cpuScore, playerScore);
-            displayResult(`You win! Paper beats rock.`);
-            playerHand.style.borderColor = 'green';
-            cpuHand.style.borderColor = 'red';
-        }
-        else if (playerSelection == 'rock' && computerSelection == 'paper'){
-            cpuScore++
-            displayPlayerChoice(playerSelection)
-            displayCpuChoice(computerSelection)
-            displayScore(cpuScore, playerScore);
-            displayResult(`You lose! Paper beats rock.`);
-            playerHand.style.borderColor = 'red';
-            cpuHand.style.borderColor = 'green';
-        }
-        else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-            cpuScore++
-            displayPlayerChoice(playerSelection)
-            displayCpuChoice(computerSelection)
-            displayScore(cpuScore++, playerScore);
-            displayResult(`You lose! Rock beats scissors.`);
-            playerHand.style.borderColor = 'red';
-            cpuHand.style.borderColor = 'green';
-        }
-        else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-            cpuScore++
-            displayPlayerChoice(playerSelection)
-            displayCpuChoice(computerSelection)
-            displayScore(cpuScore, playerScore);
-            displayResult(`You lose! Scissors beats paper.`);
-            playerHand.style.borderColor = 'red';
-            cpuHand.style.borderColor = 'green';
+        //all possible conditions for a game of rock paper scissors
+        else {
+            if (playerSelection == 'rock' && computerSelection == 'scissors') {
+                playerScore++
+                displayPlayerChoice(playerSelection)
+                displayCpuChoice(computerSelection)
+                displayScore(cpuScore, playerScore);
+                displayResult(`You win! Rock beats scissors.`);
+                playerHand.style.borderColor = 'green';
+                cpuHand.style.borderColor = 'red';
+
+            }
+            else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+                playerScore++
+                displayPlayerChoice(playerSelection)
+                displayCpuChoice(computerSelection)
+                displayScore(cpuScore, playerScore++);
+                displayResult(`You win! Scissors beats paper.`);
+                playerHand.style.borderColor = 'green';
+                cpuHand.style.borderColor = 'red';
+            }
+            else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                playerScore++
+                displayPlayerChoice(playerSelection)
+                displayCpuChoice(computerSelection)
+                displayScore(cpuScore, playerScore);
+                displayResult(`You win! Paper beats rock.`);
+                playerHand.style.borderColor = 'green';
+                cpuHand.style.borderColor = 'red';
+            }
+            else if (playerSelection == 'rock' && computerSelection == 'paper'){
+                cpuScore++
+                displayPlayerChoice(playerSelection)
+                displayCpuChoice(computerSelection)
+                displayScore(cpuScore, playerScore);
+                displayResult(`You lose! Paper beats rock.`);
+                playerHand.style.borderColor = 'red';
+                cpuHand.style.borderColor = 'green';
+            }
+            else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+                cpuScore++
+                displayPlayerChoice(playerSelection)
+                displayCpuChoice(computerSelection)
+                displayScore(cpuScore++, playerScore);
+                displayResult(`You lose! Rock beats scissors.`);
+                playerHand.style.borderColor = 'red';
+                cpuHand.style.borderColor = 'green';
+            }
+            else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+                cpuScore++
+                displayPlayerChoice(playerSelection)
+                displayCpuChoice(computerSelection)
+                displayScore(cpuScore, playerScore);
+                displayResult(`You lose! Scissors beats paper.`);
+                playerHand.style.borderColor = 'red';
+                cpuHand.style.borderColor = 'green';
+            }
         }
     }
 }
@@ -143,17 +148,21 @@ function displayResult(str) {
 function displayScore(cpuScore, playerScore){
     getCpuScore.textContent = cpuScore;
     getPlayerScore.textContent = playerScore;
+
+    //checks to see if player win
     if (playerScore == 5) {
         winner.style.color = "green";
         winner.textContent = "You win! This time.... ";
     }
+
+    //checks to see if cpu win
     else if (cpuScore == 5) {
         winner.style.color = "red";
         winner.textContent = "formulating response.... ";
         const pause = setTimeout(cpuResponse, 5000);
         function cpuResponse() {
             let rand = Math.floor((Math.random()*3));
-            let arr = ['Better luck next time loser!', 'Wow you suck!', 'Accessing your savings account'];
+            let arr = ['Better luck next time loser!', 'Wow you suck!', 'Hacking into your savings account'];
             winner.textContent = `${arr[rand]}`;
         }
     }
