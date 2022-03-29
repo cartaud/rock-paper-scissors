@@ -72,7 +72,7 @@ function playRound(playerSelection, computerSelection) {
                 playerScore++
                 displayPlayerChoice(playerSelection)
                 displayCpuChoice(computerSelection)
-                displayScore(cpuScore, playerScore++);
+                displayScore(cpuScore, playerScore);
                 displayResult(`You win! Scissors beats paper.`);
                 playerHand.style.borderColor = 'green';
                 cpuHand.style.borderColor = 'red';
@@ -99,7 +99,7 @@ function playRound(playerSelection, computerSelection) {
                 cpuScore++
                 displayPlayerChoice(playerSelection)
                 displayCpuChoice(computerSelection)
-                displayScore(cpuScore++, playerScore);
+                displayScore(cpuScore, playerScore);
                 displayResult(`You lose! Rock beats scissors.`);
                 playerHand.style.borderColor = 'red';
                 cpuHand.style.borderColor = 'green';
