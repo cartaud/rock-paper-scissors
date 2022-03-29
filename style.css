@@ -7,19 +7,38 @@ h1 {
     justify-content: center;
 }
 
+figure {
+    font-size: 50px;
+    margin: 10px;
+    
+}
+
+.show {
+    display: flex;
+    justify-content: space-around;
+}
+
+.border {
+    border: solid 5px black;
+    width: 80px;
+    height:80px;
+}
+
+
 .icons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding-top: 50px;
+    margin-top: 50px;
 }
 
 .newGame {
-    margin: 20px 47%;
+    margin: 20px 46%;
     padding:5px;
 }
 
 .msg {
+    margin-top: 5%;
     text-align: center;
 }
 

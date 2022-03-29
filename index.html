@@ -11,25 +11,30 @@
 
     <h1>Man Versus Machine!</h1>
     
-    
+    <div class="show">
+        <div id="player" class="border"></div>
+        <div id="cpu" class="border"></div>
+    </div>
+
+    <div class = "msg"></div>
 
     <div class="icons">
         <button touchend="playRound('rock', computerPlay())" onClick="playRound('rock', computerPlay())">
-            <img src="images/rockIcon.jpeg" alt="rock icon">
+            <figure alt="rock">&#9994</figure>
             <figcaption>ROCK</figcaption>
         </button>
         <button touchend="playRound('paper', computerPlay())" onClick="playRound('paper', computerPlay())">
-            <img src="./images/paperIcon.jpeg" alt="paper icon">
+            <figure alt="paper">&#9995</figure>
             <figcaption>PAPER</figcaption>
         </button>
         <button touchend="playRound('scissors', computerPlay())" onClick="playRound('scissors', computerPlay())">
-            <img src="./images/scissorsIcon.jpeg" alt="scissors icon">
+            <figure alt="scissors">&#9996</figure>
             <figcaption>SCISSORS</figcaption>
         </button>
     </div>
 
     
-    <div class = "msg"></div>
+    
 
     
     <div class="scoreContainer">
