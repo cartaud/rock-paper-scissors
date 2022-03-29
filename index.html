@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <script src="script.js" defer></script>
     
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
 
-    <h1>Man Versus Machine!</h1>
+    <h1>Man Versus Machine</h1>
     
+    <div class = "msg"></div>
+
     <div class="show">
         <div id="player" class="border"></div>
         <div id="cpu" class="border"></div>
     </div>
-
-    <div class = "msg"></div>
 
     <div class="icons">
         <button touchend="playRound('rock', computerPlay())" onClick="playRound('rock', computerPlay())">
@@ -37,19 +37,22 @@
     
 
     
+    
+    <h2>SCORE</h2>
     <div class="scoreContainer">
-        <h2>SCORE</h2>
-        <div>Computer: <span class="cpuScore"></span></div>
         <div>Human: <span class="playerScore"></span></div>
+        <div>Computer: <span class="cpuScore"></span></div>
     </div>
     
     <div class="winner">
         
     </div>
 
+    <div class="btn">
     <button class="newGame" touchend="playRound('reset', computerPlay())" onClick="playRound('reset', computerPlay())">
         New Game
     </button> 
+    </div>
 
 </body>
 </html>

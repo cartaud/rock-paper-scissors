@@ -7,6 +7,10 @@ h1 {
     justify-content: center;
 }
 
+h2 {
+    text-align: center;
+}
+
 figure {
     font-size: 50px;
     margin: 10px;
@@ -15,13 +19,19 @@ figure {
 
 .show {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10%;
 }
 
 .border {
     border: solid 5px black;
     width: 80px;
     height:80px;
+    margin-top: 2%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -32,23 +42,28 @@ figure {
     margin-top: 50px;
 }
 
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
 .newGame {
-    margin: 20px 46%;
+    margin-top: 5%;
     padding:5px;
 }
 
 .msg {
-    margin-top: 5%;
+    margin-top: 2%;
     text-align: center;
 }
 
 .scoreContainer {
-    margin: 10px 46%;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    
 }
 
-.playerScore {
-    margin-left: 16px;
-}
 
 .winner {
     font-size: 100px;
